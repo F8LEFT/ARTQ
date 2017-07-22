@@ -1,0 +1,23 @@
+How to build:
+
+Before building this project, you must conform that you have installed
+the latest Qt program(Qt5.9), java and cmake.
+
+git clone https://github.com/F8LEFT/ARTQ
+
+cd ARTQ
+
+mkdir build
+
+cd build
+
+cmake -DCMAKE_BUILD_TYPE=STRING=Release -DCMAKE_PREFIX_PATH=path/to/qtbuildpath  --build ..
+
+make ART
+
+Or just use QtCreator to build it. Use QtCreator to open ${ART}/CmakeLists.txt, and build.
+
+Ps: If you are building ART in Windows Platform, you need to generate dependency
+file after building.
+
+windeployqt --release ART.exe

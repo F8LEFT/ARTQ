@@ -1,1 +1,2 @@
+add_subdirectory(AppCore)
 add_subdirectory(Utils)

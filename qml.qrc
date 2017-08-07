@@ -1,6 +1,9 @@
 <RCC>
     <qresource prefix="/">
         <file>res/qml/main.qml</file>
-        <file>res/qml/MainForm.ui.qml</file>
+        <file>res/qml/Window/MainWindow.qml</file>
+    </qresource>
+    <qresource prefix="/modules">
+        <file>res/qml/Extra/SharedComponents/qmldir</file>
     </qresource>
 </RCC>

@@ -13,11 +13,12 @@ cd build
 
 cmake -DCMAKE_BUILD_TYPE=STRING=Release -DCMAKE_PREFIX_PATH=path/to/qtbuildpath  --build ..
 
-make ART
+make AndroidReverseToolkit
 
 Or just use QtCreator to build it. Use QtCreator to open ${ART}/CmakeLists.txt, and build.
 
 Ps: If you are building ART in Windows Platform, you need to generate dependency
 file after building.
 
-windeployqt --release ART.exe
+windeployqt --release AndroidReverseToolkit
+

@@ -54,12 +54,15 @@ endif()
 
 set(ART_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(ART_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
 include_directories(${ART_INCLUDE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(libs)
 add_executable(${PROJECT_NAME} "main.cpp" "qml.qrc")
+target_link_libraries(${PROJECT_NAME} Utils AppCore)
 
 # build && copy local resource
+# do not copy source qml at this time, just use compiled resource
 # ******************************************************************************
 set(ART_COPY_RES_CMD ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_CURRENT_SOURCE_DIR}/res/qml
@@ -67,4 +70,4 @@ set(ART_COPY_RES_CMD ${CMAKE_COMMAND} -E copy_directory
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${ART_COPY_RES_CMD})
 add_custom_target(CopyResources ALL COMMAND ${ART_COPY_RES_CMD})
 
-qt5_use_modules(${PROJECT_NAME} Core Quick)
+qt5_use_modules(${PROJECT_NAME} Core Quick Widgets)

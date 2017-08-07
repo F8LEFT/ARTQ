@@ -7,9 +7,34 @@
 //===----------------------------------------------------------------------===//
 
 #include "Utils/GlobalConfig.h"
+#include "art_version.h"
 
-namespace AGlobalConfig {
-    QString g_qml_path;
+#include <QLocale>
 
+GlobalConfig gProcessConfig;
 
+QDate GlobalConfig::GetCompileData() {
+    return QLocale("en_US").toDate(QString(__DATE__).simplified(), "MMM d yyyy");
 }
+
+QString GlobalConfig::GetCompileVersion() {
+    return ART_VERSION_STRING;
+}
+
+int GlobalConfig::GetCompileMajor() {
+    return ART_VERSION_MAJOR;
+}
+
+int GlobalConfig::GetCompileMinor() {
+    return ART_VERSION_MINOR;
+}
+
+int GlobalConfig::GetComplePatch() {
+    return ART_VERSION_PATCH;
+}
+
+
+
+
+
+

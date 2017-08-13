@@ -11,6 +11,7 @@
 
 #include <QString>
 #include <QDate>
+#include <QQmlApplicationEngine>
 
 struct GlobalConfig {
 public:
@@ -21,8 +22,12 @@ public:
 
     QString app_root_path;
     QString qml_root_path;
+    QQmlApplicationEngine* m_engine;
+
+    QQmlApplicationEngine* engine();
 
     static QDate GetCompileData();
+    static QString GetCompileString();
     static QString GetCompileVersion();
     static int GetCompileMajor();
     static int GetCompileMinor();

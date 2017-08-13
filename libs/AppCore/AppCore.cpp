@@ -17,18 +17,22 @@ AppCore::AppCore() {
 }
 
 bool AppCore::init(QObject *root) {
+    Q_ASSERT(!m_isInit && "AppCore has been init");
+    Q_ASSERT(root != nullptr && "root shoule be empty");
     if(m_isInit) {
         return true;
     }
-    Q_ASSERT(root != nullptr && "root shoule be empty");
 
     m_root = root;
+    // init AppCore property
+    QQmlProperty::write(root, "version", GlobalConfig::GetCompileVersion());
+    QQmlProperty::write(root, "compileTime",
+                        StringUtil::ToDateString(GlobalConfig::GetCompileData())
+                        + ", " + GlobalConfig::GetCompileString());
 
-    QQmlProperty version(root, "version");
-    version.write(GlobalConfig::GetCompileVersion());
-    QQmlProperty compileTime(root, "compileTime");
-    compileTime.write(StringUtil::ToDateString(GlobalConfig::GetCompileData())
-                      + "," + __TIME__);
+    // init other window info
+    mainWindow->init(m_root->findChild<QObject*>("mainWindow", Qt::FindDirectChildrenOnly));
+
 
     m_isInit = true;
     return m_isInit;

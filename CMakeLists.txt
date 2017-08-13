@@ -52,6 +52,8 @@ else()
     message(FATAL_ERROR "not supported Platform")
 endif()
 
+set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Werror")
+
 set(ART_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(ART_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
@@ -62,7 +64,6 @@ add_executable(${PROJECT_NAME} "main.cpp" "qml.qrc")
 target_link_libraries(${PROJECT_NAME} Utils AppCore)
 
 # build && copy local resource
-# do not copy source qml at this time, just use compiled resource
 # ******************************************************************************
 set(ART_COPY_RES_CMD ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_CURRENT_SOURCE_DIR}/res/qml
@@ -71,3 +72,4 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${ART_COPY_RES_CMD}
 add_custom_target(CopyResources ALL COMMAND ${ART_COPY_RES_CMD})
 
 qt5_use_modules(${PROJECT_NAME} Core Quick Widgets)
+

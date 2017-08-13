@@ -21,8 +21,8 @@ ApplicationWindow {
         text: "Author: F8LEFT - CURRWIN"
         informativeText: "Compiled on:<br>" + compileTime + "<br>" +
                          "<br>This program is free and opensource software. Source code can " +
-                         "be found in <a href=\"https://github.com/F8LEFT/ART\">" +
-                         "https://github.com/F8LEFT/ART</a>. You can redistribute " +
+                         "be found in <a href=\"https://github.com/F8LEFT/ARTQ\">" +
+                         "https://github.com/F8LEFT/ARTQ</a>. You can redistribute " +
                          "it and/or modify it under the terms of the GNU General Public " +
                          "License as published by the Free Software Foundation, either " +
                          "version 3 of the License, of (at your option) any later version." +
@@ -80,6 +80,7 @@ ApplicationWindow {
     }
 
     AWindow.MainWindow {
+        objectName: "mainWindow"
         id: mainWindow
 
     }

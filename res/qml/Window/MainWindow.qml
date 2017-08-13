@@ -2,6 +2,7 @@ import QtQuick 2.8
 
 import SharedComponents 1.0
 
+
 Rectangle {
     property alias mouseArea: mouseArea
 
@@ -13,14 +14,22 @@ Rectangle {
         anchors.fill: parent
     }
 
+    FileBrowserDock {
+        id: fileBrowser
+        objectName: "fileBrowser"
+    }
+
     PanelContainer {
-        id: mainContainer
+        objectName: "dockContainer"
+        id: dockContainer
         anchors.fill: parent
         movable: true
 
-//        panelsMetaData: [
-//            { id: "", container: mainContainer, }
-//        ]
+
+        panelsMetaData: [
+            { container: dockContainer, innerObject: fileBrowser, name: "fileBrowser", percentWidth: 70, percentHeight: 50}
+//                    { id: "panel1", container: mainContainer, qml: "qrc:/MyPanel1.qml", name: "Panel 1", percentWidth: 70, percentHeight: 50 },
+        ]
     }
 
 

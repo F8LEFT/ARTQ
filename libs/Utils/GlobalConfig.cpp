@@ -17,6 +17,10 @@ QDate GlobalConfig::GetCompileData() {
     return QLocale("en_US").toDate(QString(__DATE__).simplified(), "MMM d yyyy");
 }
 
+QString GlobalConfig::GetCompileString() {
+    return QString(__DATE__);
+}
+
 QString GlobalConfig::GetCompileVersion() {
     return ART_VERSION_STRING;
 }

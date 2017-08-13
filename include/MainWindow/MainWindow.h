@@ -1,26 +1,25 @@
 //===------------------------------------------------------------*- C++ -*-===//
 //
-//                     Created by F8LEFT on 2017/8/6.
+//                     Created by F8LEFT on 2017/8/7.
 //                   Copyright (c) 2017. All rights reserved.
 //===----------------------------------------------------------------------===//
-// define the action of core application.
+// Main work window.....
 //===----------------------------------------------------------------------===//
 
-#ifndef ANDROIDREVERSETOOLKITQ_APPCORE_H
-#define ANDROIDREVERSETOOLKITQ_APPCORE_H
+#ifndef ANDROIDREVERSETOOLKITQ_MAINWINDOW_H
+#define ANDROIDREVERSETOOLKITQ_MAINWINDOW_H
 
-#include "MainWindow/MainWindow.h"
+#include "DockWindow/FileBrowser.h"
 
-#include <QObject>
 #include <QDebug>
 
-
-class AppCore {
+class MainWindow: public QObject {
+    Q_OBJECT
 public:
-    static AppCore* instance() {
-        static AppCore* mPtr = nullptr;
+    static MainWindow* instance() {
+        static MainWindow* mPtr = nullptr;
         if(mPtr == nullptr) {
-            mPtr = new AppCore();
+            mPtr = new MainWindow();
         }
         return mPtr;
     }
@@ -29,13 +28,14 @@ public:
     bool isInited() { return m_isInit; }
 
 private:
-    AppCore();
+    MainWindow();
 
     bool m_isInit = false;
-    QObject* m_root = nullptr;
-    // Window data
-    MainWindow* mainWindow = MainWindow::instance();
+
+    // Window info
+    FileBrowser *fileBrowser = FileBrowser::instance();
+
 };
 
 
-#endif //ANDROIDREVERSETOOLKITQ_APPCORE_H
+#endif //ANDROIDREVERSETOOLKITQ_MAINWINDOW_H

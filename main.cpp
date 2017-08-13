@@ -31,9 +31,9 @@ int main(int argc, char *argv[])
 
     // start process
     QQmlApplicationEngine engine;
+    gProcessConfig.m_engine = &engine;
     // Import for extra qml
     engine.addImportPath(gProcessConfig.qml_root_path + "/Extra");
-//    engine.load(QUrl(QStringLiteral("qrc:///res/qml/main.qml")));
     engine.load(QUrl::fromLocalFile(gProcessConfig.qml_root_path + "/main.qml"));
 
     auto rootObjects = engine.rootObjects();
@@ -52,6 +52,7 @@ int main(int argc, char *argv[])
                 "check your qml source";
         return -1;
     }
+
 
 
     return app.exec();

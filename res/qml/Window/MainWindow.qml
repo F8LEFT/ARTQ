@@ -19,21 +19,6 @@ Rectangle {
         objectName: "fileBrowser"
     }
 
-    PanelContainer {
-        objectName: "dockContainer"
-        id: dockContainer
-        anchors.fill: parent
-        movable: true
-
-
-        panelsMetaData: [
-            { container: dockContainer, innerObject: fileBrowser, name: "fileBrowser", percentWidth: 70, percentHeight: 50}
-//                    { id: "panel1", container: mainContainer, qml: "qrc:/MyPanel1.qml", name: "Panel 1", percentWidth: 70, percentHeight: 50 },
-        ]
-    }
-
-
-
     // Side bar
     // Button bar
     // MainProcess Window

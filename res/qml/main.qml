@@ -82,6 +82,7 @@ ApplicationWindow {
     AWindow.MainWindow {
         objectName: "mainWindow"
         id: mainWindow
+        anchors.fill: parent
 
     }
 
